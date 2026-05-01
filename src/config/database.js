@@ -52,11 +52,7 @@ async function connectDatabase() {
     throw err;
   }
 
-  process.on('SIGINT', async () => {
-    await sequelize.close();
-    logger.info('MySQL connection closed (SIGINT)');
-    process.exit(0);
-  });
+
 }
 
 module.exports = { sequelize, connectDatabase };

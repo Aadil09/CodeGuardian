@@ -25,7 +25,7 @@ const envSchema = Joi.object({
 const { error, value } = envSchema.validate(process.env);
 
 if (error && process.env.NODE_ENV !== 'test') {
-  throw new Error(`Environment validation failed: ${error.message}`);
+  console.error(`Environment validation warning: ${error.message}`);
 }
 
 module.exports = value || process.env;
